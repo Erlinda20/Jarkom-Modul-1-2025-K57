@@ -38,19 +38,170 @@ Format: Hydra v1.8.0-dev
 
       nc 10.15.43.32 3403
 
+a. What credential did the attacker use to log in?
+Format: user:pass
+
+Harus mengurutkan sesuai protocol, lalu muncul user > follow > tcp stream
+
+Jawaban
+
+      ind@psg420.com:{6r_6e#TfT1p
+
+b. How many files are suspected of containing malware?
+Format: int
+
+untuk ciri ciri malware itu jenis file nya .exe
+
+klik Follow > TCP stream, Didalam itu ada namanya q.exe,w.exe,e.exe,r.exe,t.exe
+
+c.  What is the hash of the first file (q.exe)?
+Format: sha256
+
+Clear display filter, lalu scroll ke bawah hingga ketemu q.exe. lalu klik kanan > Follow > tcp stream. Lalu Show As diganti menjadi raw dan save. lalu buka terminal
+
+      sha256sum (nama_file)
+
+Jawaban 
+
+      ca34b0926cdc3242bbfad1c4a0b42cc2750d90db9a272d92cfb6cb7034d2a3bd
+
+
+d. What is the hash of the second file (w.exe)?
+Format: sha256
+
+lakukan hal sama seperti di C
+
+Jawaban 
+
+      08eb941447078ef2c6ad8d91bb2f52256c09657ecd3d5344023edccf7291e9fc
+
+e. What is the hash of the third file (e.exe)?
+Format: sha256
+
+lakukan hal yang sama seperti di C
+
+Jawaban 
+
+      32e1b3732cd779af1bf7730d0ec8a7a87a084319f6a0870dc7362a15ddbd3199
+
+f. What is the hash of the fourth file (r.exe)?
+Format: sha256
+
+lakukan hal yang sama seperti di C
+
+Jawaban 
+
+      4ebd58007ee933a0a8348aee2922904a7110b7fb6a316b1c7fb2c6677e613884
+
+g. What is the hash of the fifth file (t.exe)?
+Format: sha256
+
+lakukan hal yang sama seperti di C
+
+Jawaban
+
+      10ce4b79180a2ddd924fdc95951d968191af2ee3b7dfc96dd6a5714dbeae613a
+
+
 ## Soal 17
 
       nc 10.15.43.32 3404
+
+a. What is the name of the first suspicious file?
+Format: file.exe
+
+klik File > Export Objects > HTTP. Nah disini ada list listnya.
+
+Jawaban 
+
+      Invoice&MSO-Request.doc
+
+Karena file .doc sering dipakai untuk menyebarkan malware lewat macro atau script berbahaya yang dieksekusi ketika dokumen dibuka.
+
+b. What is the name of the second suspicious file?
+Format: file.exe
+
+      knr.exe
+
+c. What is the hash of the second suspicious file (knr.exe)?
+Format: sha256
+
+Jawaban 
+
+      749e161661290e8a2d190b1a66469744127bc25bf46e5d0c6f2e835f4b92db18
+
+
 
 ## Soal 18 
 
       nc 10.15.43.32 3405
 
+a. How many files are suspected of containing malware?
+Format: int
+
+Jawaban 
+
+      2
+
+b.  What is the name of the first malicious file?
+
+Jawaban 
+
+      d0p2nc6ka3f_fixhohlycj4ovqfcy_smchzo_ub83urjpphrwahjwhv_o5c0fvf6.exe
+
+c. Apa nama file berbahaya yang kedua?
+
+Jawaban 
+
+      oiku9bu68cxqenfmcsos2aek6t07_guuisgxhllixv8dx2eemqddnhyh46l8n_di.exe
+
+d. What is the hash of the first malicious file?
+Format: sha256
+
+Jawaban 
+
+      59896ae5f3edcb999243c7bfdc0b17eb7fe28f3a66259d797386ea470c010040
+      
+e. What is the hash of the second malicious file?
+Format: sha256
+
+Jawaban
+
+      cf99990bee6c378cbf56239b3cc88276eec348d82740f84e9d5c343751f82560
+      
+
 ## Soal 19
 
       nc 10.15.43.32 3406
+
+a. Who sent the threatening message?
+Format: string (name)
+
+klik protocol yang SMTP, klik kanan > follow > TCP Stream 
+
+b. How much ransom did the attacker demand ($)?
+Format: int
+
+c. What is the attacker's bitcoin wallet?
+Format: string
 
 ## Soal 20
 
       nc 10.15.43.32 3407
 
+Langkah masukkan keylognya:
+1. Edit > Preferences > protocols > pilih TLS
+2. Pada opsi (Pre)-Master-Secret log filename Browse dan pilih keyslogfile.txt, lalu pencet ok.
+3. Referesh
+
+a. What encryption method is used?
+Format: string
+
+Menggunakan display Filter:
+
+      tls.handshake.type == 2
+
+Lalu Klik salah satu paket ServerHelllo > lihat panel tengah > expand Transport Layer Security > bagian cipher suite akan menampilkan nama. 
+
+
+   
