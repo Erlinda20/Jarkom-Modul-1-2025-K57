@@ -13,20 +13,47 @@
 a. How many packets are recorded in the pcapng file?
 Format: int
 
+bisa dilihat di tengah pojok kanan bawah. Yang bertulis Packets: 500358.
+
 ![14a](images/14a.png)
 
 b. What are the user that successfully logged in?
 Format: user:pass
+
+Memakai display filter 
+
+      frame contains "Success"
+
+lalu ada muncul 1 paket. klik kanan > follow > tcp stream.
+
+Jawaban 
+
+      n1enna:y4v4nn4_k3m3nt4r1
+      
 
 ![14b](images/14b.png)
 
 c. In which stream were the credentials found?
 Format: int
 
+kita bisa melihat di pojok kiri atas yang highlight berwarna hijau
+
+Jawaban
+
+      41824
+      
+
 ![14c](images/14c.png)
 
 d. What tools are used for brute force?
 Format: Hydra v1.8.0-dev
+
+Dengan paket yang sama seperti no a tadi. klik kanan > follow > tcp stream. lalu bisa melihat User-Agent.
+
+Jawaban 
+
+      Fuzz Faster U Fool v2.1.0-dev
+      
 
 ![14d](images/14b.png)
 
@@ -37,6 +64,8 @@ Format: Hydra v1.8.0-dev
 a. What device does Melkor use?
 Format: string
 
+Kita bisa scroll kebawah hingga ada tulisan **STRING** karena disoal ada format string. Dan cari di bString yang memiliki kata.
+
 Jawaban 
 
       Keyboard
@@ -46,6 +75,11 @@ Jawaban
 b. What did Melkor write?
 Format: string
 
+Lalu mendowload semua paket di plain text. lalu bisa run dengan 
+
+      python3 decode_hid.py hiddenmsg.pcapng
+      
+
 Jawaban
 
       UGx6X3ByMHYxZGVfeTB1cl91czNybjRtZV80bmRfcDRzc3cwcmQ=
@@ -54,6 +88,8 @@ Jawaban
 
 c. What is Melkor's secret message?
 Format: string
+
+Lalu hasil dari yang dapet dari decode bisa dibacakan di website yaitu **cyberchef** dengan recipe From Base46.
 
 Jawaban 
 
@@ -90,7 +126,7 @@ Format: sha256
 
 Clear display filter, lalu scroll ke bawah hingga ketemu q.exe. lalu klik kanan > Follow > tcp stream. Lalu Show As diganti menjadi raw dan save. lalu buka terminal
 
-      sha256sum (nama_file)
+      sha256sum nama_file
 
 Jawaban 
 
@@ -188,6 +224,8 @@ Jawaban
 a. How many files are suspected of containing malware?
 Format: int
 
+untuk melihat mencurigakan file malware adalah yang memiliki file .exe
+
 Jawaban 
 
       2
@@ -196,6 +234,8 @@ Jawaban
 
 b.  What is the name of the first malicious file?
 
+Melihat file pertamana yang .exe
+
 Jawaban 
 
       d0p2nc6ka3f_fixhohlycj4ovqfcy_smchzo_ub83urjpphrwahjwhv_o5c0fvf6.exe
@@ -203,6 +243,8 @@ Jawaban
 ![18b](images/18a.png)
 
 c. Apa nama file berbahaya yang kedua?
+
+melihat file kedua yang .exe
 
 Jawaban 
 
@@ -213,6 +255,11 @@ Jawaban
 d. What is the hash of the first malicious file?
 Format: sha256
 
+Bisa mendowload file pertama, lalu bisa memakai terminal:
+
+      sha256sum nama_file
+      
+
 Jawaban 
 
       59896ae5f3edcb999243c7bfdc0b17eb7fe28f3a66259d797386ea470c010040
@@ -221,6 +268,11 @@ Jawaban
       
 e. What is the hash of the second malicious file?
 Format: sha256
+
+Bisa mendowload file Kedua, lalu bisa memakai terminal:
+
+      sha256sum nama_file
+
 
 Jawaban
 
@@ -247,6 +299,8 @@ Jawaban
 b. How much ransom did the attacker demand ($)?
 Format: int
 
+Bisa scroll kebawah hingga ketemu gambar dolar($) "To Stop me, Pay exactly 1600$ in bitcoin".
+
 ![19b](images/19b.png)
 
 Jawaban
@@ -256,6 +310,8 @@ Jawaban
 
 c. What is the attacker's bitcoin wallet?
 Format: string
+
+Scroll hingga ketemu text "My bitcoin wallet is: 1CWHmuF8dHt7HBGx5RKKLgg9QA2GmE3UyL"
 
 ![19c](images/19c.png)
 
