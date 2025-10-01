@@ -18,11 +18,17 @@ Format: int
 b. What are the user that successfully logged in?
 Format: user:pass
 
+![14b](images/14b.png)
+
 c. In which stream were the credentials found?
 Format: int
 
+![14c](images/14c.png)
+
 d. What tools are used for brute force?
 Format: Hydra v1.8.0-dev
+
+![14d](images/14b.png)
 
 ## Soal 15
 
