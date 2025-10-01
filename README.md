@@ -75,9 +75,10 @@ Jawaban
 b. What did Melkor write?
 Format: string
 
-Lalu mendowload semua paket di plain text. lalu bisa run dengan 
+kita disini memakai python3 untuk mendapatkan tulisan yang dibuat melkor. Dimana file decode_hid.py dan file pcapng jadi 1 folder. 
+run di terminal: 
 
-      python3 decode_hid.py hiddenmsg.pcapng
+      python3 decode_hid.py
       
 
 Jawaban
