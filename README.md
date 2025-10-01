@@ -41,12 +41,16 @@ Jawaban
 
       Keyboard
 
+![15a](images/15a.png)
+
 b. What did Melkor write?
 Format: string
 
 Jawaban
 
       UGx6X3ByMHYxZGVfeTB1cl91czNybjRtZV80bmRfcDRzc3cwcmQ=
+
+![15b](images/15b.png)
 
 c. What is Melkor's secret message?
 Format: string
@@ -55,6 +59,7 @@ Jawaban
 
       Plz_pr0v1de_y0ur_us3rn4me_4nd_p4ssw0rd
 
+![15c](images/15c.png)
 
 ## Soal 16
 
