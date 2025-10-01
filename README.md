@@ -10,10 +10,19 @@
       
       nc 10.15.43.32 3401
 
-How many packets are recorded in the pcapng file?
+a. How many packets are recorded in the pcapng file?
 Format: int
 
 ![14a](images/14a.png)
+
+b. What are the user that successfully logged in?
+Format: user:pass
+
+c. In which stream were the credentials found?
+Format: int
+
+d. What tools are used for brute force?
+Format: Hydra v1.8.0-dev
 
 ## Soal 15
 
