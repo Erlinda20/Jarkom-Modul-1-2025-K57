@@ -14,8 +14,11 @@ Dalam tahap persiapan jaringan, Eru yang berperan sebagai Router membangun dua b
 Karena pada saat itu Arda (Bumi) masih terisolasi dari dunia luar, Eru memutuskan untuk menambahkan koneksi agar dapat terhubung ke internet. Hal ini dilakukan dengan menghubungkan Router yang dijalankan oleh Eru ke jaringan eksternal sehingga seluruh entitas yang berada di dalam topologi, termasuk para Ainur sebagai client, bisa mengakses layanan internet. Dengan langkah ini, jaringan yang awalnya hanya terbatas pada komunikasi internal kini dapat berinteraksi dengan jaringan global.
 
 ## Soal 3
+Pada tahap ini, Eru memastikan agar setiap Ainur (Client) dapat saling terhubung. Hal ini dilakukan dengan mengatur konfigurasi jaringan pada Router sehingga komunikasi antar-Client dalam satu topologi dapat berjalan tanpa hambatan. Dengan demikian, semua Ainur bisa melakukan pertukaran data secara langsung melalui jaringan internal.
 ## Soal 4
+Setelah konektivitas internal berhasil, Eru menginginkan agar setiap Ainur (Client) dapat lebih mandiri. Oleh karena itu, konfigurasi dilanjutkan dengan memastikan bahwa setiap Client dapat tersambung ke internet melalui Router. Dengan pengaturan ini, para Ainur tidak hanya dapat berkomunikasi antar satu sama lain, tetapi juga dapat mengakses jaringan eksternal secara bebas.
 ## Soal 5
+Walaupun jaringan sudah berjalan, ancaman dari Melkor sebagai Ainur terkuat tetap ada. Untuk mengantisipasi kerusakan yang mungkin ditimbulkan, Eru bersama Ainur lainnya memastikan bahwa semua konfigurasi yang telah dibuat tidak hilang meskipun node di-restart. Dengan melakukan penyimpanan konfigurasi secara permanen, kestabilan jaringan dapat terjaga dan sistem tetap berjalan sesuai dengan rancangan awal.
 ## Soal 14
       
       nc 10.15.43.32 3401
