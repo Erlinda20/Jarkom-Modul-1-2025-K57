@@ -203,5 +203,23 @@ Menggunakan display Filter:
 
 Lalu Klik salah satu paket ServerHelllo > lihat panel tengah > expand Transport Layer Security > bagian cipher suite akan menampilkan nama. 
 
+Jawaban 
+
+      TLS
+
+b. What is the name of the malicious file placed by the attacker?
+Format: file.exe
+
+Clear Display filter lalu ke File > Export objects > HTTP, lalu file dengan jenis .dll
+
+
+c. What is the hash of the file containing the malware?
+Format: sha256
+
+Lalu save, dan membaca ke terminal 
+
+      sha256sum nama_file
+
+
 
    
