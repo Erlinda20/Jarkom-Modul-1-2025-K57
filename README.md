@@ -6,6 +6,16 @@
 
 ### Reporting
 
+## Soal 1
+Dalam tahap persiapan jaringan, Eru yang berperan sebagai Router membangun dua buah Switch/Gateway sebagai penghubung utama. Switch pertama dikonfigurasi untuk terhubung dengan dua Ainur, yaitu Melkor dan Manwe, yang berfungsi sebagai client. Sementara itu, Switch kedua diarahkan untuk terhubung dengan dua Ainur lainnya, yakni Varda dan Ulmo, yang juga ditetapkan sebagai client. Dengan rancangan ini, seluruh client dapat berkomunikasi melalui router pusat sehingga alur jaringan menjadi lebih terstruktur dan sesuai dengan topologi yang telah direncanakan.
+![1](images/1png)
+
+## Soal 2
+Karena pada saat itu Arda (Bumi) masih terisolasi dari dunia luar, Eru memutuskan untuk menambahkan koneksi agar dapat terhubung ke internet. Hal ini dilakukan dengan menghubungkan Router yang dijalankan oleh Eru ke jaringan eksternal sehingga seluruh entitas yang berada di dalam topologi, termasuk para Ainur sebagai client, bisa mengakses layanan internet. Dengan langkah ini, jaringan yang awalnya hanya terbatas pada komunikasi internal kini dapat berinteraksi dengan jaringan global.
+
+## Soal 3
+## Soal 4
+## Soal 5
 ## Soal 14
       
       nc 10.15.43.32 3401
