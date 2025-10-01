@@ -10,3 +10,6 @@
       
       nc 10.15.43.32 3401
 
+How many packets are recorded in the pcapng file?
+Format: int
+
