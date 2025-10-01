@@ -13,3 +13,27 @@
 How many packets are recorded in the pcapng file?
 Format: int
 
+## Soal 15
+
+      nc 10.15.43.32 3402
+
+## Soal 16
+
+      nc 10.15.43.32 3403
+
+## Soal 17
+
+      nc 10.15.43.32 3404
+
+## Soal 18 
+
+      nc 10.15.43.32 3405
+
+## Soal 19
+
+      nc 10.15.43.32 3406
+
+## Soal 20
+
+      nc 10.15.43.32 3407
+
