@@ -13,6 +13,8 @@
 How many packets are recorded in the pcapng file?
 Format: int
 
+![14a](images/14a.png)
+
 ## Soal 15
 
       nc 10.15.43.32 3402
