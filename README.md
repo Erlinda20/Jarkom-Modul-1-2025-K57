@@ -34,6 +34,28 @@ Format: Hydra v1.8.0-dev
 
       nc 10.15.43.32 3402
 
+a. What device does Melkor use?
+Format: string
+
+Jawaban 
+
+      Keyboard
+
+b. What did Melkor write?
+Format: string
+
+Jawaban
+
+      UGx6X3ByMHYxZGVfeTB1cl91czNybjRtZV80bmRfcDRzc3cwcmQ=
+
+c. What is Melkor's secret message?
+Format: string
+
+Jawaban 
+
+      Plz_pr0v1de_y0ur_us3rn4me_4nd_p4ssw0rd
+
+
 ## Soal 16
 
       nc 10.15.43.32 3403
