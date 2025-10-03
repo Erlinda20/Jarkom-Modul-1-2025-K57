@@ -138,12 +138,14 @@ Setelah itu kita pindah client ke Manwe dan mendownload filenya dari situ
 get kitab_penciptaan.txt
 ```
 Kalian bisa mengcapturenya dengan filter ``ftp``
+![9](images/WiresharkNo9.png)
 ## Soal 10
 Masuk ke client melkor dan langsung beri command ping 100 ke node Eru
 ```
 ping -c 100 10.15.43.32
 ```
-
+![10a]()
+![10b]()
 ## Soal 14
       
       nc 10.15.43.32 3401
