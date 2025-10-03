@@ -21,11 +21,11 @@ Setelah konektivitas internal berhasil, Eru menginginkan agar setiap Ainur (Clie
 Walaupun jaringan sudah berjalan, ancaman dari Melkor sebagai Ainur terkuat tetap ada. Untuk mengantisipasi kerusakan yang mungkin ditimbulkan, Eru bersama Ainur lainnya memastikan bahwa semua konfigurasi yang telah dibuat tidak hilang meskipun node di-restart. Dengan melakukan penyimpanan konfigurasi secara permanen, kestabilan jaringan dapat terjaga dan sistem tetap berjalan sesuai dengan rancangan awal.
 ## Soal 6
 Pertama-tama kita mendownload file traffic.zip dulu, lalu kita unzip di client Manwe, karena dalam konteks soal, Melkor menyusup dalam komunikasi Manwe dan Eru, jadi kita memberi taffic nya kepada Manwe
-``
+```
 wget --no-check-certificate "https://docs.google.com/uc?export=download&id=1bE3kF1Nclw0VyKq4bL2VtOOt53IC7lG5" -O traffic.zip
 unzip traffic.zip -o traffic.sh
 bash traffic.sh
-``
+```
 Lalu kita check link antara switch 1 dengan Eru menggunakan capture di wireshark, lalu kita melakukan filter untuk mengetahui paket mana yang berasal dari atau menuju ke IP Address Manwe.
 ``
 ip.addr == 10.92.1.3
