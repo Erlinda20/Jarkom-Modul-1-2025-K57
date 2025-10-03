@@ -97,6 +97,28 @@ ftp 10.15.43.32
 ``
 user: melkor pw: melkor123
 # Soal 8
+Pertama-tama kita download dulu cuaca.zip nya menggunakan
+```
+wget --no-check-certificate "https://docs.google.com/uc?export=download&id=11ra_yTV_adsPIXeIPMSt0vrxCBZu0r33" -O cuaca.zip
+unzip cuaca.zip -o cuaca.txt
+```
+Lalu kita masuk ke ftp di client Ulno, dengan 
+``user: ainur`` dan ``pw: ainur123``
+```
+ftp 10.15.43.32 
+```
+Seletah masuk ke ftpnya, kita upload file tersebut menggunakan
+```
+put cuaca.txt
+```
+Setelah itu bari kita bisa mengaksesnya di ftp client Eru dengan menggunakan ``user: ainur`` dan ``pw: ainur123``
+```
+ftp 10.15.43.32
+```
+dan mendownload file cuaca.txt nya dnegan
+```
+get cuaca.txt
+```
 ## Soal 14
       
       nc 10.15.43.32 3401
