@@ -119,6 +119,21 @@ dan mendownload file cuaca.txt nya dnegan
 ```
 get cuaca.txt
 ```
+## Soal 9
+Petama kita download file tersebut di client Eru dengan cara yang sama seperti sebelumnya, dengan mneggunakan ``wget`` dan ``unzip`` menjadi kitab_penciptaan.txt, setelah itu kita buat aksesnya menjadi ``read-only`` untuk semua ainur
+```
+chown root:ftpgroup /srv/ftp/ainur/kitab_penciptaan.txt
+chmod 444 /srv/ftp/ainur/kitab_penciptaan.txt
+chmod 555 /srv/ftp/ainur
+```
+Lalu kita masuk ke ``ftp 10.15.43.32`` di Eru dan 
+```
+put kitab_penciptaan.txt
+```
+Setelah itu kita pindah client ke Manwe dan mendownload filenya dari situ
+```
+get kitab_penciptaan.txt
+```
 ## Soal 14
       
       nc 10.15.43.32 3401
