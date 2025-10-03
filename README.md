@@ -30,7 +30,7 @@ Lalu kita check link antara switch 1 dengan Eru menggunakan capture di wireshark
 ``
 ip.addr == 10.92.1.3
 ``
-![6](<img width="958" height="543" alt="WiresharkNo6" src="https://github.com/user-attachments/assets/43fa1c65-908c-4ad0-a268-a8eba5d9d162" />)
+![6](iamges/WiresharkNo6)
 ## Soal 7 
 Pertama-tama kita melakukan persiapan dulu untuk membuat ftp tersebut, karena langkahnya panjang, saya command-command nya dalam satu script file dengan nama setup-ftp.sh
 ```
