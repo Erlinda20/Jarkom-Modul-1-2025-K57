@@ -103,6 +103,7 @@ Pertama-tama kita download dulu cuaca.zip nya menggunakan
 wget --no-check-certificate "https://docs.google.com/uc?export=download&id=11ra_yTV_adsPIXeIPMSt0vrxCBZu0r33" -O cuaca.zip
 unzip cuaca.zip -o cuaca.txt
 ```
+![8](images/WiresharkNo8.png)
 Lalu kita masuk ke ftp di client Ulno, dengan 
 ``user: ainur`` dan ``pw: ainur123``
 ```
