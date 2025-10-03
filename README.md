@@ -145,7 +145,7 @@ Masuk ke client melkor dan langsung beri command ping 100 ke node Eru
 ping -c 100 10.15.43.32
 ```
 ![10a](images/HasilPingNo10.png)
-![10b]()
+![10b](images/WiresharkNo10.png)
 ## Soal 14
       
       nc 10.15.43.32 3401
