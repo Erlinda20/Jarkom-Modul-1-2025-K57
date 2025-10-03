@@ -19,6 +19,122 @@ Pada tahap ini, Eru memastikan agar setiap Ainur (Client) dapat saling terhubung
 Setelah konektivitas internal berhasil, Eru menginginkan agar setiap Ainur (Client) dapat lebih mandiri. Oleh karena itu, konfigurasi dilanjutkan dengan memastikan bahwa setiap Client dapat tersambung ke internet melalui Router. Dengan pengaturan ini, para Ainur tidak hanya dapat berkomunikasi antar satu sama lain, tetapi juga dapat mengakses jaringan eksternal secara bebas.
 ## Soal 5
 Walaupun jaringan sudah berjalan, ancaman dari Melkor sebagai Ainur terkuat tetap ada. Untuk mengantisipasi kerusakan yang mungkin ditimbulkan, Eru bersama Ainur lainnya memastikan bahwa semua konfigurasi yang telah dibuat tidak hilang meskipun node di-restart. Dengan melakukan penyimpanan konfigurasi secara permanen, kestabilan jaringan dapat terjaga dan sistem tetap berjalan sesuai dengan rancangan awal.
+## Soal 6
+Pertama-tama kita mendownload file traffic.zip dulu, lalu kita unzip di client Manwe, karena dalam konteks soal, Melkor menyusup dalam komunikasi Manwe dan Eru, jadi kita memberi taffic nya kepada Manwe
+``
+wget --no-check-certificate "https://docs.google.com/uc?export=download&id=1bE3kF1Nclw0VyKq4bL2VtOOt53IC7lG5" -O traffic.zip
+unzip traffic.zip -o traffic.sh
+bash traffic.sh
+``
+Lalu kita check link antara switch 1 dengan Eru menggunakan capture di wireshark, lalu kita melakukan filter untuk mengetahui paket mana yang berasal dari atau menuju ke IP Address Manwe.
+``
+ip.addr == 10.92.1.3
+``
+## Soal 7 
+Pertama-tama kita melakukan persiapan dulu untuk membuat ftp tersebut, karena langkahnya panjang, saya command-command nya dalam satu script file dengan nama setup-ftp.sh
+``
+#!/bin/bash
+# Setup FTP Server di node Eru (GNS3/Docker friendly)
+# User ainur → R/W, melkor → blok login FTP
+
+# Update & install paket
+apt-get update -y
+apt-get install -y vsftpd
+
+# Buat direktori per user
+mkdir -p /srv/ftp/ainur
+mkdir -p /srv/ftp/melkor
+
+# Buat group FTP
+groupadd ftpgroup 2>/dev/null
+
+# Tambah user ainur (password: ainur123) → anggota ftpgroup, shell valid
+id -u ainur &>/dev/null || useradd -m -d /home/ainur -s /bin/bash -G ftpgroup ainur
+echo "ainur:ainur123" | chpasswd
+# Pastikan shell valid di /etc/shells
+grep /bin/bash /etc/shells || echo "/bin/bash" >> /etc/shells
+# Pastikan user tidak diblok di /etc/ftpusers
+sed -i '/^ainur$/d' /etc/ftpusers
+chown ainur:ftpgroup /srv/ftp/ainur
+chmod 770 /srv/ftp/ainur
+
+# Tambah user melkor (password: melkor123) → nonaktifkan login shell
+id -u melkor &>/dev/null || useradd -m -d /home/melkor -s /usr/sbin/nologin melkor
+echo "melkor:melkor123" | chpasswd
+chown root:root /srv/ftp/melkor
+chmod 000 /srv/ftp/melkor
+
+# Backup konfigurasi vsftpd lama
+cp /etc/vsftpd.conf /etc/vsftpd.conf.bak 2>/dev/null
+
+# Tulis konfigurasi vsftpd baru
+cat > /etc/vsftpd.conf <<EOF
+listen=YES
+listen_ipv6=NO
+
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+
+local_umask=022
+dirmessage_enable=YES
+use_localtime=YES
+xferlog_enable=YES
+
+connect_from_port_20=YES
+
+chroot_local_user=YES
+allow_writeable_chroot=YES
+
+# Folder per user
+user_sub_token=\$USER
+local_root=/srv/ftp/\$USER
+
+# Blok user tertentu
+userlist_enable=YES
+userlist_deny=YES
+userlist_file=/etc/vsftpd.userlist
+
+pasv_min_port=40000
+pasv_max_port=40100
+
+seccomp_sandbox=NO
+EOF
+
+# Tambahkan melkor ke daftar user yang dilarang FTP
+echo "melkor" > /etc/vsftpd.userlist
+
+# Fix PAM untuk lab: komentar pam_shells.so
+sed -i 's/^auth\s\+required\s\+pam_shells.so/# &/' /etc/pam.d/vsftpd
+
+# Restart vsftpd daemon
+pkill vsftpd 2>/dev/null
+/usr/sbin/vsftpd /etc/vsftpd.conf &
+
+# Set IP sesuai soal (10.15.43.32) ke interface yang benar
+ip addr add 10.15.43.32/24 dev eth1 2>/dev/null
+ip link set eth1 up
+
+echo "IP 10.15.43.32 sudah diassign ke eth1 dan interface aktif"
+echo "FTP Server setup selesai!"
+echo "User ainur (password: ainur123) → read/write di /srv/ftp/ainur"
+echo "User melkor (password: melkor123) → tidak bisa akses FTP"
+echo "FTP daemon berjalan, siap diakses dari node lain"
+``
+
+Lalu kita ganti ke client Ainur (Manwe, Ulno, Varda, Melkor) untuk mengecek apakah ftp dan hak aksesnya berhasil,
+untuk ftp yang diberi akses write&read:
+``
+ftp 10.15.43.32
+``
+user: ainur, pw: ainur123
+
+Untuk client Melkor yang tidak diberi hak akses caranya sama, namun user dan pw nya beda,
+``
+ftp 10.15.43.32
+``
+user: melkor pw: melkor123
+# Soal 8
 ## Soal 14
       
       nc 10.15.43.32 3401
