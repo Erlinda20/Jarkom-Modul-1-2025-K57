@@ -32,7 +32,7 @@ ip.addr == 10.92.1.3
 ``
 ## Soal 7 
 Pertama-tama kita melakukan persiapan dulu untuk membuat ftp tersebut, karena langkahnya panjang, saya command-command nya dalam satu script file dengan nama setup-ftp.sh
-``
+```
 apt-get update -y
 apt-get install -y vsftpd
 mkdir -p /srv/ftp/ainur
@@ -82,7 +82,7 @@ echo "FTP Server setup selesai!"
 echo "User ainur (password: ainur123) → read/write di /srv/ftp/ainur"
 echo "User melkor (password: melkor123) → tidak bisa akses FTP"
 echo "FTP daemon berjalan, siap diakses dari node lain"
-``
+```
 
 Lalu kita ganti ke client Ainur (Manwe, Ulno, Varda, Melkor) untuk mengecek apakah ftp dan hak aksesnya berhasil,
 untuk ftp yang diberi akses write&read:
