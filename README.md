@@ -30,6 +30,7 @@ Lalu kita check link antara switch 1 dengan Eru menggunakan capture di wireshark
 ``
 ip.addr == 10.92.1.3
 ``
+![1](<img width="958" height="543" alt="WiresharkNo6" src="https://github.com/user-attachments/assets/43fa1c65-908c-4ad0-a268-a8eba5d9d162" />)
 ## Soal 7 
 Pertama-tama kita melakukan persiapan dulu untuk membuat ftp tersebut, karena langkahnya panjang, saya command-command nya dalam satu script file dengan nama setup-ftp.sh
 ```
@@ -119,6 +120,7 @@ dan mendownload file cuaca.txt nya dnegan
 ```
 get cuaca.txt
 ```
+Kalian bisa mengcapturenya dengan filter ``ftp``
 ## Soal 9
 Petama kita download file tersebut di client Eru dengan cara yang sama seperti sebelumnya, dengan mneggunakan ``wget`` dan ``unzip`` menjadi kitab_penciptaan.txt, setelah itu kita buat aksesnya menjadi ``read-only`` untuk semua ainur
 ```
@@ -134,6 +136,13 @@ Setelah itu kita pindah client ke Manwe dan mendownload filenya dari situ
 ```
 get kitab_penciptaan.txt
 ```
+Kalian bisa mengcapturenya dengan filter ``ftp``
+## Soal 10
+Masuk ke client melkor dan langsung beri command ping 100 ke node Eru
+```
+ping -c 100 10.15.43.32
+```
+
 ## Soal 14
       
       nc 10.15.43.32 3401
