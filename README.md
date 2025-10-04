@@ -202,7 +202,7 @@ ping -c 100 10.15.43.32
 ## Soal 11
 Kendala yang saya alami adalah ketika telnet ke Melkornya itu selalu "Connection Refused"
 Hasil output:
-![11](images/OutputErrorNo11,png)
+![11](images/OutputErrorNo11.png)
 Sript command yang saya pakai:
 ```
 #!/bin/bash
