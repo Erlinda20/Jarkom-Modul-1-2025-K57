@@ -201,6 +201,39 @@ ping -c 100 10.15.43.32
 ```
 ## Soal 11
 Kendala yang saya alami adalah ketika telnet ke Melkornya itu selalu "Connection Refused"
+Hasil output:
+![11](images/OutputErrorNo11)
+Sript command yang saya pakai:
+```
+#!/bin/bash
+# Setup Telnet Server di node Melkor (fixed: use telnetd)
+echo "[*] Update & install paket telnetd + openbsd-inetd..."
+apt-get update -y
+apt-get install -y openbsd-inetd telnetd
+
+echo "[*] Tambah user eru..."
+id -u eru &>/dev/null || useradd -m -s /bin/bash eru
+echo "eru:eru123" | chpasswd
+
+echo "[*] Konfigurasi inetd.conf (pakai /usr/sbin/telnetd)..."
+sed -i '/^telnet/d' /etc/inetd.conf
+echo "telnet stream tcp nowait root /usr/sbin/telnetd telnetd" >> /etc/inetd.conf
+
+echo "[*] Izinkan akses telnet di hosts.allow..."
+grep -q "telnetd" /etc/hosts.allow || echo "telnetd: ALL" >> /etc/hosts.allow
+
+echo "[*] Jalankan inetd (debug mode)..."
+pkill inetd 2>/dev/null
+/usr/sbin/inetd -d /etc/inetd.conf > /var/log/inetd_telnet.log 2>&1 &
+
+sleep 1
+echo "[*] Cek apakah telnet listen di port 23..."
+ss -tlnp | grep :23 || echo "❌ Telnet belum jalan, cek /etc/inetd.conf"
+
+echo "Setup selesai!"
+echo "Login dari node Eru dengan: telnet <IP_MELKOR>"
+echo "User: eru | Pass: eru123"
+```
 ## Soal 12
 ## Soal 13
 ![10a](images/HasilPingNo10.png)
