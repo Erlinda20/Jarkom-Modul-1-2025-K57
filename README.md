@@ -144,6 +144,10 @@ Masuk ke client melkor dan langsung beri command ping 100 ke node Eru
 ```
 ping -c 100 10.15.43.32
 ```
+## Soal 11
+Kendala yang saya alami adalah ketika telnet ke Melkornya itu selalu "Connection Refused"
+## Soal 12
+## Soal 13
 ![10a](images/HasilPingNo10.png)
 ![10b](images/WiresharkNo10.png)
 ## Soal 14
