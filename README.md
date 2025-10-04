@@ -13,12 +13,67 @@ Dalam tahap persiapan jaringan, Eru yang berperan sebagai Router membangun dua b
 ## Soal 2
 Karena pada saat itu Arda (Bumi) masih terisolasi dari dunia luar, Eru memutuskan untuk menambahkan koneksi agar dapat terhubung ke internet. Hal ini dilakukan dengan menghubungkan Router yang dijalankan oleh Eru ke jaringan eksternal sehingga seluruh entitas yang berada di dalam topologi, termasuk para Ainur sebagai client, bisa mengakses layanan internet. Dengan langkah ini, jaringan yang awalnya hanya terbatas pada komunikasi internal kini dapat berinteraksi dengan jaringan global.
 
+      #Eru
+      auto eth0
+      iface eth0 inet dhcp
+      
+      auto eth1
+      iface eth1 inet static
+      	address 10.92.1.1
+      	netmask 255.255.255.0
+      
+      auto eth2
+      iface eth2 inet static
+      	address 10.92.2.1
+      	netmask 255.255.255.0
+
 ## Soal 3
 Pada tahap ini, Eru memastikan agar setiap Ainur (Client) dapat saling terhubung. Hal ini dilakukan dengan mengatur konfigurasi jaringan pada Router sehingga komunikasi antar-Client dalam satu topologi dapat berjalan tanpa hambatan. Dengan demikian, semua Ainur bisa melakukan pertukaran data secara langsung melalui jaringan internal.
+
+      #Melkor
+      auto eth0
+      iface eth0 inet static
+      	address 10.92.1.2
+      	netmask 255.255.255.0
+      	gateway 10.92.1.1
+      
+      #Manwe
+      auto eth0
+      iface eth0 inet static
+      	address 10.92.1.3
+      	netmask 255.255.255.0
+      	gateway 10.92.1.1
+      
+      #Varda
+      auto eth0
+      iface eth0 inet static
+      	address 10.92.2.2
+      	netmask 255.255.255.0
+      	gateway 10.92.2.1
+      
+      #Ulno
+      auto eth0
+      iface eth0 inet static
+      	address 10.92.2.3
+      	netmask 255.255.255.0
+      	gateway 10.92.2.1
+
+
 ## Soal 4
 Setelah konektivitas internal berhasil, Eru menginginkan agar setiap Ainur (Client) dapat lebih mandiri. Oleh karena itu, konfigurasi dilanjutkan dengan memastikan bahwa setiap Client dapat tersambung ke internet melalui Router. Dengan pengaturan ini, para Ainur tidak hanya dapat berkomunikasi antar satu sama lain, tetapi juga dapat mengakses jaringan eksternal secara bebas.
+
+      #client
+      10.15.43.32 [root]
+      ping google.com -c 5
+
 ## Soal 5
 Walaupun jaringan sudah berjalan, ancaman dari Melkor sebagai Ainur terkuat tetap ada. Untuk mengantisipasi kerusakan yang mungkin ditimbulkan, Eru bersama Ainur lainnya memastikan bahwa semua konfigurasi yang telah dibuat tidak hilang meskipun node di-restart. Dengan melakukan penyimpanan konfigurasi secara permanen, kestabilan jaringan dapat terjaga dan sistem tetap berjalan sesuai dengan rancangan awal.
+
+      apt update
+      apt install iptables -y
+      iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.92.0.0/16
+      echo nameserver 192.168.122.1 > /etc/resolv.conf
+
 ## Soal 6
 Pertama-tama kita mendownload file traffic.zip dulu, lalu kita unzip di client Manwe, karena dalam konteks soal, Melkor menyusup dalam komunikasi Manwe dan Eru, jadi kita memberi taffic nya kepada Manwe
 ```
